@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for album in albums %}
+    <a href="{{ url_for('view_album', album_name=album) }}"
+       class="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        <h2 class="text-xl font-semibold text-gray-800">{{ album }}</h2>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

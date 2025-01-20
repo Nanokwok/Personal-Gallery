@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+    <h1 class="text-2xl font-bold mb-6">Upload Images</h1>
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="album_name">
+                Album Name
+            </label>
+            <input type="text" name="album_name" id="album_name"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   required>
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="files">
+                Select Images
+            </label>
+            <input type="file" name="files[]" multiple accept="image/*"
+                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   required>
+        </div>
+        <button type="submit"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+            Upload
+        </button>
+    </form>
+</div>
+{% endblock %}

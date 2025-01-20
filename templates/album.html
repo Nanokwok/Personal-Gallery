@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-3xl font-bold mb-8 text-center text-gray-800" style="font-family: 'Poppins', sans-serif;">
+    {{ album_name }}
+</h1>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8">
+    {% for image in images %}
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl">
+        <img src="{{ url_for('static', filename='uploads/' + image[1]) }}"
+             alt="{{ image[2] }}"
+             class="w-full h-56 object-cover">
+        <div class="p-5">
+            <h2 class="text-lg font-semibold text-gray-800 mb-2" style="font-family: 'Poppins', sans-serif;">
+                {{ image[2] }}
+            </h2>
+            <p class="text-sm text-gray-600 mb-1">
+                {{ image[4] }}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
